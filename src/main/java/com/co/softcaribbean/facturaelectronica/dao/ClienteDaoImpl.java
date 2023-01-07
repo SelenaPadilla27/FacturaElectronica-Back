@@ -3,6 +3,7 @@ package com.co.softcaribbean.facturaelectronica.dao;
 
 import com.co.softcaribbean.facturaelectronica.dao.contracts.ClienteDao;
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
+import com.co.softcaribbean.facturaelectronica.models.Paciente;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -30,11 +31,13 @@ public class ClienteDaoImpl implements ClienteDao {
     }
 
     @Override
-    public void registrar(Cliente cliente) {
-        entityManager.merge(cliente);
+    public Cliente registrar(Cliente cliente) {
+        Cliente clienteRespuesta = entityManager.merge(cliente);
         entityManager.close();
+        return clienteRespuesta;
 
     }
+
 
     @Override
     public Cliente obtenerClientePorId(Long id) {
@@ -49,6 +52,11 @@ public class ClienteDaoImpl implements ClienteDao {
 
         }
         return null;
+    }
+
+    @Override
+    public Cliente actualizarCliente(Cliente cliente) {
+        return entityManager.merge(cliente);
     }
 
 }

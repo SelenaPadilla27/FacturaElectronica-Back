@@ -30,9 +30,10 @@ public class MascotaDaoImpl implements MascotaDao {
     }
 
     @Override
-    public void registrar(Mascota mascota) {
-        entityManager.merge(mascota);
+    public Mascota registrar(Mascota mascota) {
+        Mascota mascotaRespuesta = entityManager.merge(mascota);
         entityManager.close();
+        return mascotaRespuesta;
 
     }
 
@@ -54,5 +55,10 @@ public class MascotaDaoImpl implements MascotaDao {
             return null;
         }
         return null;
+    }
+
+    @Override
+    public Mascota actualizarMascota(Mascota mascota) {
+        return entityManager.merge(mascota);
     }
 }

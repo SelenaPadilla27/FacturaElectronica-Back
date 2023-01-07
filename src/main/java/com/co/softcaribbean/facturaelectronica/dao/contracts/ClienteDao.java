@@ -10,7 +10,9 @@ public interface ClienteDao  {
 
     void eliminar(Cliente cliente);
 
-    void registrar(Cliente cliente);
+    Cliente registrar(Cliente cliente);
 
     Cliente obtenerClientePorId(Long id);
+
+    Cliente actualizarCliente(Cliente cliente);
 }

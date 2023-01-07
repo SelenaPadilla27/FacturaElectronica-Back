@@ -30,20 +30,30 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Transactional
     @Override
-    public void eliminar(Long id) {
+    public boolean eliminar(Long id) {
         Paciente paciente = pacienteDao.obtenerPacientePorId(id);
-        if (paciente != null) pacienteDao.eliminar(paciente);
+        if (paciente != null) {
+            try {
+                pacienteDao.eliminar(paciente);
+                return true;
+            } catch (Exception e){
+                return false;
+            }
+
+        }
+        return false;
 
     }
 
     @Transactional
     @Override
-    public void registrar(Paciente paciente, Long id) {
+    public Paciente registrar(Paciente paciente, Long id) {
         Mascota mascota = mascotaDao.obtenerMascotaPorId(id);
         if (mascota != null && paciente != null) {
             paciente.setMascota(mascota);
-            pacienteDao.registrar(paciente);
+            return pacienteDao.registrar(paciente);
         }
+        return null;
     }
 
     @Transactional(readOnly = true)

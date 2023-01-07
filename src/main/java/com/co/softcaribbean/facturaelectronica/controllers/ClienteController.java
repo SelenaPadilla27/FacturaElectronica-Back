@@ -1,6 +1,7 @@
 package com.co.softcaribbean.facturaelectronica.controllers;
 
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
+import com.co.softcaribbean.facturaelectronica.models.Paciente;
 import com.co.softcaribbean.facturaelectronica.services.contracts.ClienteService;
 import com.co.softcaribbean.facturaelectronica.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,18 @@ public class ClienteController {
         clienteService.eliminar(id);
     }
     @RequestMapping(value = "/agregarCliente", method = RequestMethod.POST)
-    public void  registrarCliente(@RequestHeader(value = "Authorization") String token, @RequestBody Cliente cliente){
+    public Cliente registrarCliente(@RequestHeader(value = "Authorization") String token, @RequestBody Cliente cliente){
         if(validarToken(token))
-        clienteService.registrar(cliente);
+            return clienteService.registrar(cliente);
+        return null;
     }
 
+    @RequestMapping(value = "/actualizarCliente/{id}", method = RequestMethod.POST)
+    public Cliente  actualizarCliente(@RequestHeader(value = "Authorization") String token, @RequestBody Cliente cliente, @PathVariable Long id){
+        if(validarToken(token))
+            return clienteService.actualizarCliente(cliente, id);
+        return null;
+    }
     @RequestMapping(value = "/obtenerPorId/{id}", method = RequestMethod.GET)
     public Cliente obtenerPorId(@RequestHeader(value = "Authorization") String token, @PathVariable Long id){
         if(!validarToken(token)) return null;

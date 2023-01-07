@@ -31,9 +31,10 @@ public class PacienteDaoImpl implements PacienteDao {
     }
 
     @Override
-    public void registrar(Paciente paciente) {
-        entityManager.persist(paciente);
+    public Paciente registrar(Paciente paciente) {
+        Paciente pacienteRespuesta =  entityManager.merge(paciente);
         entityManager.close();
+        return  pacienteRespuesta;
     }
 
     @Override

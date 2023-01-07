@@ -1,6 +1,6 @@
 package com.co.softcaribbean.facturaelectronica.services;
 
-import com.co.softcaribbean.facturaelectronica.dao.contracts.ClienteDao;
+
 import com.co.softcaribbean.facturaelectronica.dao.contracts.LoginDao;
 import com.co.softcaribbean.facturaelectronica.models.Login;
 import com.co.softcaribbean.facturaelectronica.services.contracts.LoginService;
@@ -32,7 +32,6 @@ public class LoginServiceImpl implements LoginService {
         }
         return "FAIL";
     }
-
     @Transactional
     @Override
     public void registrar(Login login) {

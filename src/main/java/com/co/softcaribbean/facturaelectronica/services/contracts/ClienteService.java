@@ -1,6 +1,8 @@
 package com.co.softcaribbean.facturaelectronica.services.contracts;
 
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
+import com.co.softcaribbean.facturaelectronica.models.Paciente;
+
 import java.util.List;
 
 public interface ClienteService {
@@ -10,8 +12,10 @@ public interface ClienteService {
 
     void eliminar(Long id);
 
-    void registrar(Cliente cliente);
+    Cliente registrar(Cliente cliente);
 
     Cliente obtenerClientePorId(Long id);
+
+    Cliente actualizarCliente(Cliente cliente, Long id);
 }
 

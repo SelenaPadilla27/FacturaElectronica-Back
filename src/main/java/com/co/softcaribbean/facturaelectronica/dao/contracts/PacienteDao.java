@@ -12,7 +12,7 @@ public interface PacienteDao {
 
     void eliminar(Paciente paciente);
 
-    void registrar(Paciente paciente);
+    Paciente registrar(Paciente paciente);
 
     Paciente obtenerPacientePorId(Long id);
 

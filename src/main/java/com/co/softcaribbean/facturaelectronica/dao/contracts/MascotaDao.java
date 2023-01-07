@@ -11,8 +11,10 @@ public interface MascotaDao {
 
     void eliminar(Mascota mascota);
 
-    void registrar(Mascota mascota);
+    Mascota registrar(Mascota mascota);
 
     Mascota obtenerMascotaPorId(Long id);
+
+    Mascota actualizarMascota(Mascota mascota);
 
 }

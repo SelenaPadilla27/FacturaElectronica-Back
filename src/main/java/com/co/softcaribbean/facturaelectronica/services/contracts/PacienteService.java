@@ -8,9 +8,9 @@ public interface PacienteService {
 
     List<Paciente> getPacinete();
 
-    void eliminar(Long id);
+    boolean eliminar(Long id);
 
-    void registrar(Paciente paciente, Long id);
+    Paciente registrar(Paciente paciente, Long id);
 
     Paciente obtenerPacientePorId(Long id);
 
