@@ -1,14 +1,10 @@
 package com.co.softcaribbean.facturaelectronica.controllers;
-
-
 import com.co.softcaribbean.facturaelectronica.models.Mascota;
 import com.co.softcaribbean.facturaelectronica.services.contracts.MascotaService;
 import com.co.softcaribbean.facturaelectronica.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 @RestController
 @RequestMapping("api/mascota")
 public class MascotaController {
@@ -48,7 +44,6 @@ public class MascotaController {
         if(validarToken(token)) return mascotaService.actualizarMascota(mascota, id);
         return null;
     }
-
     private boolean validarToken(String token){
         String usuarioId = jwtUtil.getKey(token);
         return usuarioId != null;

@@ -1,62 +1,44 @@
 package com.co.softcaribbean.facturaelectronica.dao;
-
-
 import com.co.softcaribbean.facturaelectronica.dao.contracts.ClienteDao;
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
-import com.co.softcaribbean.facturaelectronica.models.Paciente;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class ClienteDaoImpl implements ClienteDao {
-
-
+public class ClienteDaoImpl implements ClienteDao{
     @PersistenceContext
     EntityManager entityManager;
-
     @Override
-    public List<Cliente> getCliente() {
+    public List<Cliente> getCliente(){
         String query = "FROM Cliente";
         return entityManager.createQuery(query).getResultList();
     }
-
     @Override
-    public void eliminar(Cliente cliente) {
+    public void eliminar(Cliente cliente){
         entityManager.remove(cliente);
         entityManager.close();
-
     }
-
     @Override
-    public Cliente registrar(Cliente cliente) {
+    public Cliente registrar(Cliente cliente){
         Cliente clienteRespuesta = entityManager.merge(cliente);
         entityManager.close();
         return clienteRespuesta;
-
     }
-
-
     @Override
-    public Cliente obtenerClientePorId(Long id) {
+    public Cliente obtenerClientePorId(Long id){
         String query = "SELECT C FROM Cliente C WHERE id = :id";
-        Cliente cliente = (Cliente) entityManager.createQuery(query)
-                .setParameter("id", id)
-                .getSingleResult();
-        entityManager.close();
-        if (cliente != null) {
-            entityManager.close();
+        Cliente cliente = (Cliente)
+                entityManager.createQuery(query).setParameter("id", id).getSingleResult();
+                entityManager.close();
+        if (cliente != null) { entityManager.close();
             return cliente;
-
         }
         return null;
     }
-
     @Override
-    public Cliente actualizarCliente(Cliente cliente) {
-        return entityManager.merge(cliente);
+    public Cliente actualizarCliente(Cliente cliente){
+           return entityManager.merge(cliente);
     }
-
 }
