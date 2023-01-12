@@ -1,17 +1,13 @@
 package com.co.softcaribbean.facturaelectronica.models;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @ToString @EqualsAndHashCode
 public class Cliente {
-
 
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)

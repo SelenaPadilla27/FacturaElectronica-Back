@@ -22,6 +22,13 @@ public class ClienteDaoImpl implements ClienteDao{
     }
     @Override
     public Cliente registrar(Cliente cliente){
+      /*  try{
+            Cliente clienteRespuesta = entityManager.merge(cliente);
+            entityManager.getTransaction().commit();
+        }catch(Exception e){
+            entityManager.getTransaction().rollback();
+            entityManager.close();
+        }*/
         Cliente clienteRespuesta = entityManager.merge(cliente);
         entityManager.close();
         return clienteRespuesta;

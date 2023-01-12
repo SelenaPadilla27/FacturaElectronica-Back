@@ -1,5 +1,4 @@
 package com.co.softcaribbean.facturaelectronica.controllers;
-
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
 import com.co.softcaribbean.facturaelectronica.models.Paciente;
 import com.co.softcaribbean.facturaelectronica.services.contracts.ClienteService;

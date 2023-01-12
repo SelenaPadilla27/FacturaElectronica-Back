@@ -1,15 +1,12 @@
 package com.co.softcaribbean.facturaelectronica.services;
-
 import com.co.softcaribbean.facturaelectronica.dao.contracts.ClienteDao;
 import com.co.softcaribbean.facturaelectronica.dao.contracts.MascotaDao;
 import com.co.softcaribbean.facturaelectronica.models.Cliente;
 import com.co.softcaribbean.facturaelectronica.models.Mascota;
-import com.co.softcaribbean.facturaelectronica.models.Paciente;
 import com.co.softcaribbean.facturaelectronica.services.contracts.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
@@ -65,10 +62,8 @@ public class MascotaServiceImpl implements MascotaService {
                 mascotaTemp.setEspecieMascota(mascota.getEspecieMascota());
                 mascotaTemp.setNomMascota(mascota.getNomMascota());
                 mascotaTemp.setRazaMascota(mascota.getRazaMascota());
-
                 return mascotaDao.actualizarMascota(mascotaTemp);
             }
-
         }
         return mascotaTemp;
     }

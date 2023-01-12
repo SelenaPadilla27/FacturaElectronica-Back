@@ -1,6 +1,4 @@
 package com.co.softcaribbean.facturaelectronica.services;
-
-
 import com.co.softcaribbean.facturaelectronica.dao.contracts.LoginDao;
 import com.co.softcaribbean.facturaelectronica.models.Login;
 import com.co.softcaribbean.facturaelectronica.services.contracts.LoginService;

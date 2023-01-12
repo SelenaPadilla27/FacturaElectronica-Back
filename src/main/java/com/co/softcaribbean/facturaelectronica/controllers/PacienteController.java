@@ -19,7 +19,8 @@ public class PacienteController {
         return  pacienteService.getPacinete();
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public boolean eliminar(@RequestHeader(value = "Authorization") String token, @PathVariable Long id){
+    public boolean eliminar(@RequestHeader(value = "Authorization") String token,
+                            @PathVariable Long id){
         if(validarToken(token)) {
             pacienteService.eliminar(id);
             return true;
@@ -27,18 +28,24 @@ public class PacienteController {
         return false;
     }
     @RequestMapping(value = "/agregarPaciente/{id}", method = RequestMethod.POST)
-    public Paciente registrarPaciente(@RequestHeader(value = "Authorization") String token, @RequestBody Paciente paciente, @PathVariable Long id){
+    public Paciente registrarPaciente(@RequestHeader(value = "Authorization") String token,
+                                      @RequestBody Paciente paciente,
+                                      @PathVariable Long id)
+    {
         if(validarToken(token))
             return pacienteService.registrar(paciente, id);
         return null;
     }
     @RequestMapping(value = "/obtenerPorId/{id}", method = RequestMethod.GET)
-    public Paciente obtenerPorId(@RequestHeader(value = "Authorization") String token, @PathVariable Long id){
+    public Paciente obtenerPorId(@RequestHeader(value = "Authorization") String token,
+                                 @PathVariable Long id){
         if(!validarToken(token)) return null;
         return pacienteService.obtenerPacientePorId(id);
     }
     @RequestMapping(value = "/actualizarPaciente/{id}", method = RequestMethod.POST)
-    public Paciente  actualizarPaciente(@RequestHeader(value = "Authorization") String token, @RequestBody Paciente paciente, @PathVariable Long id){
+    public Paciente  actualizarPaciente(@RequestHeader(value = "Authorization") String token,
+                                        @RequestBody Paciente paciente,
+                                        @PathVariable Long id){
         if(validarToken(token))  return pacienteService.actualizarPaciente(paciente, id);
         return null;
     }

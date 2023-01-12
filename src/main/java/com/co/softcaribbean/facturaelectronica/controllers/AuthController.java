@@ -1,8 +1,4 @@
 package com.co.softcaribbean.facturaelectronica.controllers;
-
-
-
-import com.co.softcaribbean.facturaelectronica.models.Cliente;
 import com.co.softcaribbean.facturaelectronica.models.Login;
 import com.co.softcaribbean.facturaelectronica.services.contracts.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
